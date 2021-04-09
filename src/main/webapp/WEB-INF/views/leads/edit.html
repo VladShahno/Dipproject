@@ -7,21 +7,23 @@
 <body>
 
     <form th:method="PATCH" th:action="@{/leads/{id}(id=${lead.getId()})}" th:object="${lead}">
-	    <label for="firstname"> First Name </label>
-	    <input type="text" th:field="*{FirstName}" id="firstname"/>
-	       <br/>
-	    <label for="lastName"> Last Name </label>
-        <input type="text" th:field="*{LastName}" id="lastName"/>
+	    <label for="firstName">First Name </label>
+        <input type="text" th:field="*{firstName}" id="firstName"/>
+        <div style="color:red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name Error</div>
             <br/>
-        <label for="title"> Title </label>
-        <input type="text" th:field="*{Title}" id="title"/>
+        <label for="lastName">Last Name </label>
+        <input type="text" th:field="*{lastName}" id="lastName"/>
             <br/>
-        <label for="email"> Email </label>
-        <input type="text" th:field="*{Email}" id="email"/>
-	       <br/>
-        <label for="proof"> Proof Link </label>
-        <input type="text" th:field="*{Proof}" id="proof"/>
-	       <br/>
+        <label for="title">Title </label>
+        <input type="text" th:field="*{title}" id="title"/>
+            <br/>
+        <label for="email">Email </label>
+        <input type="text" th:field="*{email}" id="email"/>
+        <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+            <br/>
+        <label for="proof">Proof Link </label>
+        <input type="text" th:field="*{proof}" id="proof"/>
+            <br/>
 	    <input type="submit" value="Update!"/>
    </form>
 

@@ -7,22 +7,24 @@
 <body>
 
 	<form th:method="POST" th:action="@{/leads}" th:object="${lead}">
-    <label for="firstName">First Name </label>
-    <input type="text" th:field="*{FirstName}" id="firstName"/>
-        <br/>
-    <label for="lastName">Last Name </label>
-    <input type="text" th:field="*{LastName}" id="lastName"/>
-        <br/>
-    <label for="title">Title </label>
-    <input type="text" th:field="*{Title}" id="title"/>
-        <br/>
-    <label for="email">Email </label>
-    <input type="text" th:field="*{Email}" id="email"/>
-        <br/>
-    <label for="proof">Proof Link </label>
-    <input type="text" th:field="*{Proof}" id="proof"/>
-        <br/>
-    <input type="submit" value="Create!"/>
+	    <label for="firstName">First Name </label>
+	    <input type="text" th:field="*{firstName}" id="firstName"/>
+	    <div style="color:red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name Error</div>
+            <br/>
+	    <label for="lastName">Last Name </label>
+	    <input type="text" th:field="*{lastName}" id="lastName"/>
+            <br/>
+	    <label for="title">Title </label>
+	    <input type="text" th:field="*{title}" id="title"/>
+            <br/>
+        <label for="email">Email </label>
+	    <input type="text" th:field="*{email}" id="email"/>
+	    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+            <br/>
+	    <label for="proof">Proof Link </label>
+	    <input type="text" th:field="*{proof}" id="proof"/>
+            <br/>
+        <input type="submit" value="Create!"/>
      </form>
 
 </body>
